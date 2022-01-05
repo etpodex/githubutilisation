@@ -1,0 +1,76 @@
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+#include "biblio.h"
+
+//void enchere( int nb_joueur, Splateau *ptrPlateau, int propriete_vendu, int joueurDead )
+
+int main(){
+    int dernierencherisseur = 0;
+    int numeroj = 0;
+    int passe = 0;
+    int nbjoueur = 5;
+    int argentTotal = 10000;
+    int choix_points = 0;
+    int dernierenchere = 50;
+    int test = 0;
+    int variable1 = 12;
+    int variable2 = 12;
+    int variable3 = 12;
+    int variable4 = 12;
+    int variable5 = 12;
+    int rien = 1;
+    nbjoueur;
+    printf("\e[4;31m ""les encheres commence a 50");
+    while (passe<nbjoueur){
+    if(variable1 != numeroj){
+       if (variable2 != numeroj){
+            if(variable3 != numeroj){
+                if (variable4 != numeroj){
+                    if (variable5 != numeroj){
+                        while (test != 1){
+                            printf("le joueur %d doit choisir si il suit ou pas 1 pour suivre autre pour surrencherir \n",numeroj);
+                            fflush(stdin);
+                            scanf("%d",&choix_points);
+                            if (((choix_points<=argentTotal)&&(dernierenchere + 10<=choix_points))||(choix_points == 1))
+                            {
+                                test =1;
+                            }
+                        }
+        }}}}}
+        if((variable1 == numeroj)|| (variable2 == numeroj)|| (variable3 == numeroj)|| (variable4 == numeroj)|| (variable5 == numeroj)){passe++;}
+        else if (choix_points == 1){
+            passe++;//le joueur passe son tour
+            printf("le joueur %d a quitté les encheres", numeroj);
+            if (variable1 == 12)
+            {variable1 = numeroj;}
+            else if(variable2 == 12){
+                variable2 = numeroj;}
+            else if(variable3 == 12){
+                variable3 = numeroj;}
+            else if(variable4 == 12){
+                variable4 = numeroj;}
+            else if(variable5 == 12){
+                variable5 = numeroj;}
+        }
+        else if ((choix_points<=argentTotal)&& (dernierenchere<=choix_points)){
+            dernierenchere = choix_points; // On perd l'unité, on oblige indirectement le joueur à choisir par tranche de 10
+            dernierencherisseur = numeroj;
+            printf("CA MARCHE\n");
+        }
+        else {rien = 0;}
+        choix_points =0;
+        test = 0;
+        if ((++numeroj>=nbjoueur)&&(rien)){
+            numeroj=0;
+            passe =0;
+            rien =1;
+        }
+    }
+           printf("le gagnant des encheres est le joueur %d\n",dernierencherisseur);
+         //  ptrPlateau[propriete_vendu].owner = dernierencherisseur;
+
+    return 0;
+}
